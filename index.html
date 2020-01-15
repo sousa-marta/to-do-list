@@ -7,9 +7,48 @@
   <title>To Do List</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
+
 <body>
-  
+  <header>
+    <nav class="navbar navbar-light bg-warning">
+      <a class="navbar-brand" href="#">To Do List</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>A fazer</h2>
+      </div>
+    </div>  
+    <div class="row" id="board">
+      
+      <div class="tarefa">
+        <div class="col-md-8">
+          A tarefa
+        </div>
+        <div class="col-md-2">
+            <input type="checkbox" name="" id="">
+        </div>
+      </div>
+
+      <div class="tarefa">
+        <div class="col-md-8">
+          A tarefa
+        </div>
+        <div class="col-md-2">
+            <input type="checkbox" name="" id="">
+        </div>
+      </div>
+    
+    <button id="add">Adicionar Tarefa</button>
+    <!-- <i class='fas fa-plus'></i> -->
+  </main>
+
+
   <script src="js/script.js"></script>
 </body>
 </html>

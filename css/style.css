@@ -7,7 +7,26 @@
   min-width: 400px;
 }
 
-.fas {
-  font-size: 20px;
-  color: blue;
+.fa-plus-circle:active{
+  box-shadow: 0 3px 0 #fff;
+
+}
+
+.fa-plus-circle {
+  font-size: 40px;
+  color: #fff;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 8vh;
+  width:100vw;
+  display:flex;
+  align-items: center;
+}
+
+#novaTarefa {
+  width: 80%;
+  border-radius: 5px;
 }

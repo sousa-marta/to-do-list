@@ -32,14 +32,14 @@ function mostrarNaTela(listaTarefas){
 
 function gerarTarefa(valorDigitado){
   let tarefa = document.createElement('div')
-  tarefa.setAttribute('class', 'tarefa')
+  tarefa.setAttribute('class', 'tarefa col-xs-11 col-md-8')
 
   let titulo = document.createElement('div')
-  titulo.setAttribute('class', 'col-md-8 col-10')
+  titulo.setAttribute('class', 'col-xs-11 col-md-10')
   titulo.textContent = valorDigitado
 
   let buttonSpace = document.createElement('div')
-  buttonSpace.setAttribute('class', 'col-md-2')
+  buttonSpace.setAttribute('class', 'col-xs-1 col-md-2')
 
   let checkbox = document.createElement('input')
   checkbox.setAttribute('type', 'checkbox')

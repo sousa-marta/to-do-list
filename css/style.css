@@ -4,7 +4,12 @@
   border-radius: 5px;
   padding: 20px;
   display:flex;
+  align-items: center;
   min-width: 400px;
+}
+
+#board {
+  justify-content: center;
 }
 
 /* Estilizando barra para adicionar nova tarefa */
@@ -16,6 +21,7 @@ footer {
   display:flex;
   align-items: center;
 }
+
 
 #novaTarefa {
   padding-left: 0;

@@ -1,9 +1,9 @@
-
 let board = document.getElementById('board')
-let buttonAdd = document.getElementById('add')
 let inputAdd = document.getElementById('novaTarefa')
+let buttonAdd = document.getElementById('add')
 let listaTarefas = []
 
+//Precisa criar o espaço no localStorage antes de tudo
 if(localStorage.getItem('listaTarefas')){
   listaTarefas = JSON.parse(localStorage.getItem('listaTarefas'))
 } else {
@@ -11,14 +11,13 @@ if(localStorage.getItem('listaTarefas')){
   localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas))
 }
 
-//Precisa criar o espaço no localStorage antes de tudo
 mostrarNaTela(listaTarefas)
-
 
 buttonAdd.onclick = function(){
   let valorDigitado = inputAdd.value
   listaTarefas.push(valorDigitado)
 
+  // Utilizar a função gerar tarefa aqui
   let tarefa = document.createElement('div')
   tarefa.setAttribute('class', 'tarefa')
 
@@ -37,6 +36,8 @@ buttonAdd.onclick = function(){
   tarefa.appendChild(buttonSpace)
 
   board.appendChild(tarefa)
+  //Fim da função
+
 
   //Sobreescrever as informações que estavam no localStorage
   localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas))

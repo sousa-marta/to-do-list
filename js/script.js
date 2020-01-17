@@ -13,7 +13,13 @@ if(localStorage.getItem('listaTarefas')){
 
 mostrarNaTela(listaTarefas)
 
-buttonAdd.onclick = function(){
+buttonAdd.onclick = function(event){
+
+  let botaoClicado = event.target
+
+  // console.log(event)
+  // console.log(botaoClicado)
+
   let valorDigitado = inputAdd.value
   listaTarefas.push(valorDigitado)
 
@@ -44,9 +50,21 @@ function gerarTarefa(valorDigitado){
   let checkbox = document.createElement('input')
   checkbox.setAttribute('type', 'checkbox')
 
+  checkbox.onclick = function(event){
+    //o event aqui não precisa utilizar pq puxei o tarefa.remove()
+    // console.log(event.target)
+    // console.log(event.target.parentNode.parentNode)
+
+    // Jeito mais longo de resolver:
+    /* let tarefaAvo = event.target.parentNode.parentNode
+       tarefaAvo.remove()*/
+    tarefa.remove()
+  }
+
   buttonSpace.appendChild(checkbox)
   tarefa.appendChild(titulo)
   tarefa.appendChild(buttonSpace)
 
   board.appendChild(tarefa)
 }
+

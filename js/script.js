@@ -13,6 +13,18 @@ if(localStorage.getItem('listaTarefas')){
 
 mostrarNaTela(listaTarefas)
 
+inputAdd.onkeypress = function(event){
+  // console.log(event)
+  if(event.key=='Enter'){
+    let valorDigitado = inputAdd.value
+    listaTarefas.push(valorDigitado)
+
+    gerarTarefa(valorDigitado, listaTarefas.length -1)
+    //Sobreescrever as informações que estavam no localStorage
+    localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas))
+  }
+}
+
 buttonAdd.onclick = function(event){
 
   let botaoClicado = event.target
@@ -28,6 +40,9 @@ buttonAdd.onclick = function(event){
 
   //Sobreescrever as informações que estavam no localStorage
   localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas))
+
+  //Para limpar o campo depois de digitado
+  inputAdd.value = ""
 }
 
 function mostrarNaTela(listaTarefas){
@@ -57,6 +72,7 @@ function gerarTarefa(valorDigitado,position){
   let checkbox = document.createElement('input')
   checkbox.setAttribute('type', 'checkbox')
 
+  
   checkbox.onclick = function(event){
     //o event aqui não precisa utilizar pq puxei o tarefa.remove()
     // console.log(event.target)

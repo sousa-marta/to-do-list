@@ -59,7 +59,7 @@ function mostrarNaTela(listaTarefas){
 
 function gerarTarefa(valorDigitado,position){
   let tarefa = document.createElement('div')
-  tarefa.setAttribute('class', 'tarefa col-xs-11 col-md-8')
+  tarefa.setAttribute('class', 'tarefa col-xs-11 col-md-8 mb-2')
   tarefa.setAttribute('position',position)
 
   let titulo = document.createElement('div')

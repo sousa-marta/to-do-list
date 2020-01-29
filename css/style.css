@@ -1,5 +1,11 @@
+body {
+  background-color: beige;
+  font-family: 'Roboto', sans-serif;
+}
+
 /* Estilizando a linha de tarefas */
 .tarefa {
+  background-color:white;
   border: 1px solid #404040;
   border-radius: 5px;
   padding: 20px;

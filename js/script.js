@@ -3,13 +3,22 @@ let inputAdd = document.getElementById('novaTarefa')
 let buttonAdd = document.getElementById('add')
 let listaTarefas = []
 
-//Precisa criar o espaço no localStorage antes de tudo
+//Primeiramente criar o espaço no localStorage
 if(localStorage.getItem('listaTarefas')){
   listaTarefas = JSON.parse(localStorage.getItem('listaTarefas'))
 } else {
   listaTarefas = []
   localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas))
 }
+
+//Exibir mensagem de "nenhuma tarefa" quando não houverem tarefas:
+console.log(localStorage.getItem('listaTarefas'))
+
+// if(localStorage.getItem('listaTarefa') == []){
+  let mensagem = document.createElement('p')
+  mensagem.textContent='Todas as tarefas foram concluídas, parabéns!'
+  board.appendChild(mensagem)
+// }
 
 mostrarNaTela(listaTarefas)
 
@@ -22,13 +31,14 @@ inputAdd.onkeypress = function(event){
     gerarTarefa(valorDigitado, listaTarefas.length -1)
     //Sobreescrever as informações que estavam no localStorage
     localStorage.setItem('listaTarefas', JSON.stringify(listaTarefas))
+
+    //Para limpar o campo depois de digitado
+    inputAdd.value = ""
   }
 }
 
-buttonAdd.onclick = function(event){
-
-  let botaoClicado = event.target
-
+buttonAdd.onclick = function(){
+  // let botaoClicado = event.target
   // console.log(event)
   // console.log(botaoClicado)
 
@@ -72,17 +82,20 @@ function gerarTarefa(valorDigitado,position){
   let checkbox = document.createElement('input')
   checkbox.setAttribute('type', 'checkbox')
 
-  
+  buttonSpace.appendChild(checkbox)
+  tarefa.appendChild(titulo)
+  tarefa.appendChild(buttonSpace)
+
+  board.appendChild(tarefa)
+
+  //Funcinalidade para remover a tarefa do localStorage e do painel:
   checkbox.onclick = function(event){
-    //o event aqui não precisa utilizar pq puxei o tarefa.remove()
-    // console.log(event.target)
-    // console.log(event.target.parentNode.parentNode)
-
-    // Jeito mais longo de resolver:
-    /* let tarefaAvo = event.target.parentNode.parentNode
-       tarefaAvo.remove()*/
-
-    // console.log(listaTarefas)
+    /*Jeito mais longo de resolver o remover da tela:
+      o event aqui não precisa utilizar pq puxei o tarefa.remove()
+      console.log(event.target)  
+      let tarefaAvo = event.target.parentNode.parentNode
+      tarefaAvo.remove()
+      console.log(listaTarefas)*/
 
     let posicaoTarefa = tarefa.getAttribute('position')
     listaTarefas = listaTarefas.filter(function(value,position){
@@ -100,10 +113,6 @@ function gerarTarefa(valorDigitado,position){
     tarefa.remove()
   }
 
-  buttonSpace.appendChild(checkbox)
-  tarefa.appendChild(titulo)
-  tarefa.appendChild(buttonSpace)
 
-  board.appendChild(tarefa)
 }
 

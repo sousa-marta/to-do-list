@@ -14,11 +14,12 @@ if(localStorage.getItem('listaTarefas')){
 //Exibir mensagem de "nenhuma tarefa" quando não houverem tarefas:
 console.log(localStorage.getItem('listaTarefas'))
 
-// if(localStorage.getItem('listaTarefa') == []){
+if(localStorage.getItem('listaTarefas') == null){
+  let alerta = document.getElementById('alerta')
   let mensagem = document.createElement('p')
-  mensagem.textContent='Todas as tarefas foram concluídas, parabéns!'
-  board.appendChild(mensagem)
-// }
+  mensagem.textContent= 'Todas as tarefas foram concluídas, parabéns!'
+  alerta.appendChild(mensagem)
+}
 
 mostrarNaTela(listaTarefas)
 
